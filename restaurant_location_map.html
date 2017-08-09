@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/sign_in_up.css" rel="stylesheet"/>
+    <link href="css/main_page.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	$(document.body).css({
+      	 	"overflow-x":"hidden",
+      	 	"overflow-y":"hidden"
+      	 });
+    </script>
+</head>
+<script language="JavaScript">
+window.onload=function(){
+	function GetQueryString(name)
+	{
+		var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if(r!=null)return  unescape(r[2]); return null;
+	}
+	// 调用方法
+	var location=GetQueryString("location");
+	$('#app_name_div span').text(location);
+}
+</script>
+<body>
+	<div id="main" class="sign_content mui-scroll-wrapper">
+		<!--  Top Templete  Start -->
+		<div id="top_bar">
+			<div id="app_name" class="top_frame">
+				<div id="app_name_div">
+					<span>Meet with Restaurant</span>
+					<img src="img/icon/back.png" alt="top_menu" id="top_menu" onclick="window.history.back();">
+				</div>
+			</div>
+		</div>
+		<!--  Top Templete  End -->
+		<div id="show_map_navi">
+			<img src="img/pic/map_navi.png" />
+		</div>
+		
+		
+	</div>
+</body>
+</html>

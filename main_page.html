@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/sign_in_up.css" rel="stylesheet"/>
+    <link href="css/main_page.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	 $(document.body).css({
+      	 	"overflow-x":"hidden",
+      	 	"overflow-y":"hidden"
+      	 });
+    </script>
+</head>
+<body>
+	<div id="main" class="sign_content mui-scroll-wrapper">
+		<!--  Top Templete  Start -->
+		<div id="top_bar">
+			<div id="app_name" class="top_frame">
+				<div id="app_name_div">
+					<span>Meet with Restaurant</span>
+					<img src="img/icon/top_menu.png" alt="top_menu" id="top_menu">
+					<img src="img/icon/filter.png" alt="filter" id="filter">
+				</div>
+			</div>
+		</div>
+		<!--  Top Templete  End -->
+		
+		<div id="main_page_search">
+			<div class="mui-input-row mui-search">
+				<input type="search" id="search_input" class="mui-input-clear" placeholder="Search restaurant...">
+			</div>
+		</div>
+		
+		<div id="main_page_restaurant" class="mui-scroll">
+			<div class="main_page_restaurant_video">
+				<img src="img/pic/videoshot.png" class="restaurant_video"/>
+			</div>
+			<div class="restaurant_info">
+				<div class="like-info">
+					<span class="restaurant_name" onclick="window.location.href='restaurant_info.html'">D Cafe</span>
+					<span class="restaurant_distance"><100m</span>
+					<span class="restaurant_type">Westen Food</span>
+					<img src="img/icon/like.png" class="like-restaurant"/>
+				</div>
+				<div class="dislike-info">
+					<img src="img/icon/friends.png" class="friends_num" onclick="window.location.href='friend_videos.html'"/>
+					<span class="friends_num"><a href="#">5</a> Friends</span>
+					<img src="img/icon/cross.png" class="dislike-restaurant" />
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+		
+		
+		<!--  Bottom Templete Start  -->
+		<div id="bottom_menu">
+			<ul id="bottom_ul_menu">
+				<li><img src="img/icon/home.png" onclick="window.location.href='main_page.html'"></li>
+				<li><img src="img/icon/message.png"></li>
+				<li><img src="img/icon/create.png"></li>
+				<li><img src="img/icon/moment.png" onclick="window.location.href='moment.html'"></li>
+				<li><img src="img/icon/user2.png"></li>
+			</ul>
+		</div>
+		<!--  Bottom Templete End  -->
+	</div>
+</body>
+<script language="JavaScript">
+	var h = document.documentElement.clientHeight;
+	var w = document.documentElement.clientWidth;
+	document.getElementById("main").style.height=h+"px";
+	document.getElementById("main").style.width=w+"px";
+</script>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/moment_main.css" rel="stylesheet"/>
+    <link href="css/main_page.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<div id="main" class="sign_content">
+		<!--  Top Templete  Start -->
+		<div id="top_bar">
+			<div id="app_name" class="top_frame">
+				<div id="app_name_div">
+					<span>Friend Videos</span>
+					<img src="img/icon/back.png" alt="top_menu" id="top_menu" onclick="window.history.back();">
+				</div>
+			</div>
+		</div>
+		<!--  Top Templete  End -->
+		
+		<div id="friend_video_title">
+			<span>All Day Breakfast</span>
+		</div>
+		
+		
+		<!--  Friend Video Templete  -->
+		<div id="friend_video_div">
+			<div class="friend_video_templete" id="1">
+				<img src="img/pic/videoshot1.png" class="friend_video_templete_background" />
+				<div class="like_comments">
+					<img src="img/pic/like.png" />
+					<span>145</span>
+					<img src="img/pic/comments.png" />
+					<span>17</span>
+				</div>
+			</div>
+			<div class="friend_video_templete" id="2">
+				<img src="img/pic/videoshot2.png" class="friend_video_templete_background" />
+				<div class="like_comments">
+					<img src="img/pic/like.png" />
+					<span>145</span>
+					<img src="img/pic/comments.png" />
+					<span>17</span>
+				</div>
+			</div>
+			<div class="friend_video_templete" id="3">
+				<img src="img/pic/videoshot3.png" class="friend_video_templete_background" />
+				<div class="like_comments">
+					<img src="img/pic/like.png" />
+					<span>145</span>
+					<img src="img/pic/comments.png" />
+					<span>17</span>
+				</div>
+			</div>
+			<div class="friend_video_templete" id="4">
+				<img src="img/pic/videoshot4.png" class="friend_video_templete_background" />
+				<div class="like_comments">
+					<img src="img/pic/like.png" />
+					<span>145</span>
+					<img src="img/pic/comments.png" />
+					<span>17</span>
+				</div>
+			</div>
+		</div>
+		
+		<script language="JavaScript">
+			$(".friend_video_templete").click(function(){
+				var user_id=this.id;
+				console.log(user_id);
+				localStorage.setItem('1',user_id);
+				localStorage.setItem('2',user_id);
+				window.location.href='friend_video_details.html';
+			});
+		</script>
+		
+		
+		<!--  Bottom Templete Start  -->
+		<div id="bottom_menu">
+			<ul id="bottom_ul_menu">
+				<li><img src="img/icon/home.png" onclick="window.location.href='main_page.html'"></li>
+				<li><img src="img/icon/message.png"></li>
+				<li><img src="img/icon/create.png"></li>
+				<li><img src="img/icon/moment.png" onclick="window.location.href='moment.html'"></li>
+				<li><img src="img/icon/user2.png"></li>
+			</ul>
+		</div>
+		<!--  Bottom Templete End  -->
+	</div>
+</body>
+<script language="JavaScript">
+	var h = document.documentElement.clientHeight;
+	var w = document.documentElement.clientWidth;
+	document.getElementById("main").style.height=h+"px";
+	document.getElementById("main").style.width=w+"px";
+</script>
+</html>

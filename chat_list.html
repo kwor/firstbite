@@ -12,15 +12,18 @@
     <script type="text/javascript" charset="utf-8">
       	mui.init();
     </script>
+    <style type="text/css">
+    	#app_name .mui-icon .mui-icon-clear .mui-hidden{line-height: 3vh;}
+    </style>
 </head>
 <body>
 	<div id="main" class="sign_content">
 		<!--  Top Templete  Start -->
 		<div id="top_bar">
-			<div id="app_name" class="top_frame">
-				<div id="app_name_div" style="width: 75%; margin-left: 7.5vh;">
-					<div class="mui-input-row mui-search" style="height: 5vh;">
-						<input type="search" style="height: 5vh; line-height: 5vh;" id="search_input" class="mui-input-clear" placeholder="Search Friends...">
+			<div id="_app_name" class="top_frame">
+				<div id="main_page_search" style="width: 80%; margin: 0; margin-left: 13.5vw; padding-top: 2.5vh;">
+					<div class="mui-input-row mui-search">
+						<input type="search" id="search_input" class="mui-input-clear" placeholder="Search restaurant...">
 					</div>
 				</div>
 				<img src="img/icon/top_menu.png" alt="top_menu" id="top_menu" style="top: 2.5vh;">
@@ -186,10 +189,10 @@
 		<div id="bottom_menu">
 			<ul id="bottom_ul_menu">
 				<li><img src="img/icon/home.png" onclick="window.location.href='main_page.html'"></li>
-				<li><img src="img/icon/message.png"></li>
+				<li><img src="img/icon/message.png" onclick="window.location.href='chat_list.html'"></li>
 				<li><img src="img/icon/create.png"></li>
 				<li><img src="img/icon/moment.png" onclick="window.location.href='moment.html'"></li>
-				<li><img src="img/icon/user2.png"></li>
+				<li><img src="img/icon/user2.png" onclick="window.location.href='user_center.html'"></li>
 			</ul>
 		</div>
 		<!--  Bottom Templete End  -->

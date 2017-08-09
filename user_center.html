@@ -7,56 +7,56 @@
     <script src="js/mui.min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <link href="css/mui.min.css" rel="stylesheet"/>
-    <link href="css/sign_in_up.css" rel="stylesheet"/>
+    <link href="css/user.css" rel="stylesheet"/>
     <link href="css/main_page.css" rel="stylesheet"/>
     <script type="text/javascript" charset="utf-8">
       	mui.init();
-      	 $(document.body).css({
-      	 	"overflow-x":"hidden",
-      	 	"overflow-y":"hidden"
-      	 });
     </script>
 </head>
-<body>
-	<div id="main" class="sign_content mui-scroll-wrapper">
+<body style="background: #FFFFFF;">
+	<div id="main" class="sign_content">
 		<!--  Top Templete  Start -->
 		<div id="top_bar">
 			<div id="app_name" class="top_frame">
 				<div id="app_name_div">
-					<span>Meet with Restaurant</span>
+					<span>{UserName}</span>
 					<img src="img/icon/top_menu.png" alt="top_menu" id="top_menu">
-					<img src="img/icon/filter.png" alt="filter" id="filter">
+					<img src="img/icon/edit.png" alt="edit" id="filter">
 				</div>
 			</div>
 		</div>
 		<!--  Top Templete  End -->
 		
-		<div id="main_page_search">
-			<div class="mui-input-row mui-search">
-				<input type="search" id="search_input" class="mui-input-clear" placeholder="Search restaurant...">
+		<div id="user_info">
+			<div id="user_headImg">
+				<img src="img/icon/user_headImg.png" />
 			</div>
+			<div id="user_following_info">
+				<div class="following_info">
+					<span>26</span>
+					<span>Follow</span>
+				</div>
+				<div class="following_info">
+					<span>358</span>
+					<span>Followers</span>
+				</div>
+				<div class="following_info">
+					<span>13</span>
+					<span>Videos</span>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
 		</div>
 		
-		<div id="main_page_restaurant" class="mui-scroll">
-			<div class="main_page_restaurant_video">
-				<img src="img/pic/videoshot.png" class="restaurant_video"/>
-			</div>
-			<div class="restaurant_info">
-				<div class="like-info">
-					<span class="restaurant_name" onclick="window.location.href='restaurant_info.html'">D Cafe</span>
-					<span class="restaurant_distance"><100m</span>
-					<span class="restaurant_type">Westen Food</span>
-					<img src="img/icon/like.png" class="like-restaurant"/>
-				</div>
-				<div class="dislike-info">
-					<img src="img/icon/friends.png" class="friends_num" onclick="window.location.href='friend_videos.html'"/>
-					<span class="friends_num"><a href="#">5</a> Friends</span>
-					<img src="img/icon/cross.png" class="dislike-restaurant" />
-				</div>
-				<div style="clear: both;"></div>
-			</div>
+		<div id="user_videos">
+			<img src="img/pic/dish1.png" />
+			<img src="img/pic/dish2.png" />
+			<img src="img/pic/dish3.png" />
+			<img src="img/pic/dish2.png" />
+			<img src="img/pic/dish3.png" />
+			<img src="img/pic/dish1.png" />
+			<div style="clear: both;"></div>
 		</div>
-		
 		
 		<!--  Bottom Templete Start  -->
 		<div id="bottom_menu">
@@ -67,6 +67,7 @@
 				<li><img src="img/icon/moment.png" onclick="window.location.href='moment.html'"></li>
 				<li><img src="img/icon/menu_user.png" onclick="window.location.href='user_center.html'"></li>
 			</ul>
+		</div>
 		</div>
 		<!--  Bottom Templete End  -->
 	</div>

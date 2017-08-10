@@ -39,7 +39,10 @@
 		
 		<div id="main_page_restaurant" class="mui-scroll">
 			<div class="main_page_restaurant_video">
-				<img src="img/pic/videoshot.png" class="restaurant_video"/>
+				
+ 				<video src="http://whois8.cn/files/video_039.mov" controls="controls" id="videoshow">111</video>
+			
+			
 			</div>
 			<div class="restaurant_info">
 				<div class="like-info">
@@ -53,6 +56,7 @@
 					<span class="friends_num"><a href="#">5</a> Friends</span>
 					<img src="img/icon/cross.png" class="dislike-restaurant" />
 				</div>
+				
 				<div style="clear: both;"></div>
 			</div>
 		</div>
@@ -79,9 +83,16 @@
 	var cmr = plus.camera.getCamera();
 	
 	function stopCapture(){
-    console.log("stopCapture");
+   // console.log("stopCapture");
     cmr.stopVideoCapture();
     }
+	
+	// 扩展API加载完毕后调用onPlusReady回调函数 
+document.addEventListener( "plusready", onPlusReady, false );
+var r = null; 
+// 扩展API加载完毕，现在可以正常调用扩展API 
+function onPlusReady() {
+}
 	document.getElementById('cvideo').addEventListener('tap', function() {
 	
 	    
@@ -90,8 +101,31 @@
                 //录像
                 plus.io.resolveLocalFileSystemURL(p, function(entry) {
                 //通过URL参数获取目录对象或文件对象 就是获取到录像文件位置    
-                        console.log(p);//打印文件位置，可以直接用作上传路径
-                        alert(p);
+                     console.log(p);//打印文件位置，可以直接用作上传路径
+  
+                 document.getElementById('videoshow').src=p;
+                 
+                 
+                    var task = plus.uploader.createUpload( "http://whois8.cn/upvideo.php", 
+		{ method:"POST",blocksize:204800,priority:100 },
+		function ( t, status ) {
+			// 上传完成
+			if ( status == 200 ) { 
+				alert( "短片上传成功" );
+				
+			} else {
+				alert( "上传失败: " + status );
+			}
+		}
+	);
+	task.addFile( p, {key:"testdoc"} );
+	task.addData( "string_key", "string_value" );
+	//task.addEventListener( "statechanged", onStateChanged, false );
+	task.start();
+
+    
+
+                        
                     }, function(e) {
                         console.log("读取录像文件错误：" + e.message);
                     });

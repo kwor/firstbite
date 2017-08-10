@@ -50,12 +50,16 @@
 						//alert(data["user_name"]); //回调输出
 						var status=data["return_code"];
 						var login_name=data["user_name"];
+						var login_id=data["user_id"];
 						//console.log(status);
 						switch(status){
 							case '000001':
 								alert("Login Succeed!");
 								console.log(login_name);
 								localStorage.setItem('user_name',login_name);
+								localStorage.setItem('user_id',login_id);
+							//	var uid= localStorage.getItem('user_id');
+							//console.log(uid);
 								window.location.href="main_page.html";
 								break;
 							case '000002':

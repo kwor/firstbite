@@ -1,6 +1,4 @@
-
 <?php 
- 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
  
     $ret=array('strings'=>$_POST,'error'=>'0'); 
@@ -28,7 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  
     $ret['files']=$fs; 
  
-    echo json_encode($ret); 
+    echo json_encode($ret);
+     
 }else{ 
     echo "{'error':'Unsupport GET request!'}"; 
 } 

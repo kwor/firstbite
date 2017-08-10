@@ -16,6 +16,7 @@
 				if($user_password == $user_info["user_password"]){
 					//Login Succeed
 					$login_name=$user_info["user_name"];
+					$login_id=$user_info["user_id"];
 					$return_code="000001";
 				}else{
 					//Wrong Password
@@ -58,6 +59,7 @@
 	}
 	$sign_arr["return_code"]=$return_code;
 	$sign_arr["user_name"]=$login_name;
+	$sign_arr["user_id"]=$login_id;
 	$tmp=json_encode($sign_arr);
 	echo $callback . '(' . $tmp .')';  //返回格式，必需
 

@@ -1,7 +1,7 @@
 <?php
 	require_once("dbconn.php");
 	$uid=$_REQUEST["uid"]?$_REQUEST["uid"]:0;
-	$sql="select * from kvideo where uid='$uid'";
+	$sql="select * from kvideo where uid='$uid' order by id desc";
  
 	$query=mysqli_query($dbconn,$sql);
 	

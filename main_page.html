@@ -76,15 +76,22 @@
 	var w = document.documentElement.clientWidth;
 	document.getElementById("main").style.height=h+"px";
 	document.getElementById("main").style.width=w+"px";
+	var cmr = plus.camera.getCamera();
+	
+	function stopCapture(){
+    console.log("stopCapture");
+    cmr.stopVideoCapture();
+    }
 	document.getElementById('cvideo').addEventListener('tap', function() {
 	
-	      var cmr = plus.camera.getCamera();
+	    
                 //获取相机
                 cmr.startVideoCapture(function(p) {
                 //录像
                 plus.io.resolveLocalFileSystemURL(p, function(entry) {
                 //通过URL参数获取目录对象或文件对象 就是获取到录像文件位置    
                         console.log(p);//打印文件位置，可以直接用作上传路径
+                        alert(p);
                     }, function(e) {
                         console.log("读取录像文件错误：" + e.message);
                     });
@@ -93,11 +100,14 @@
                     console.log("失败");
                     plus.nativeUI.toast("录像失败！",{duration:"long"});
                 }, {
+                	
                     filename: "_doc/camera/",//文件保存目录
                     index: 2
                 });
-	
+	             // 拍摄10s后自动完成 
+                setTimeout( stopCapture, 10000 );
 	 });
-	
+	// 停止摄像
+
 </script>
 </html>

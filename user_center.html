@@ -9,9 +9,7 @@
     <link href="css/mui.min.css" rel="stylesheet"/>
     <link href="css/user.css" rel="stylesheet"/>
     <link href="css/main_page.css" rel="stylesheet"/>
-    <script type="text/javascript" charset="utf-8">
-      	mui.init();
-    </script>
+
 </head>
 <body style="background: #FFFFFF;">
 	<div id="main" class="sign_content">
@@ -19,7 +17,7 @@
 		<div id="top_bar">
 			<div id="app_name" class="top_frame">
 				<div id="app_name_div">
-					<span>{UserName}</span>
+					<span id="iusername"></span>
 					<img src="img/icon/top_menu.png" alt="top_menu" id="top_menu">
 					<img src="img/icon/edit.png" alt="edit" id="filter">
 				</div>
@@ -41,7 +39,7 @@
 					<span>Followers</span>
 				</div>
 				<div class="following_info">
-					<span>13</span>
+					<span id="videonum">0</span>
 					<span>Videos</span>
 				</div>
 			</div>
@@ -49,12 +47,18 @@
 		</div>
 		
 		<div id="user_videos">
+		
+	 
+		
+		<!--
 			<img src="img/pic/dish1.png" />
 			<img src="img/pic/dish2.png" />
 			<img src="img/pic/dish3.png" />
 			<img src="img/pic/dish2.png" />
 			<img src="img/pic/dish3.png" />
 			<img src="img/pic/dish1.png" />
+		-->	
+			
 			<div style="clear: both;"></div>
 		</div>
 		
@@ -77,5 +81,29 @@
 	var w = document.documentElement.clientWidth;
 	document.getElementById("main").style.height=h+"px";
 	document.getElementById("main").style.width=w+"px";
+</script>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+        var uid = localStorage.getItem('user_id');
+        var username = localStorage.getItem('user_name');
+        document.getElementById('iusername').innerHTML=username;
+        //console.log(username);
+        mui.getJSON('http://whois8.cn/getvideolist.php',{uid:uid},function(data){
+		    //数据绑定在此处
+	           var user_videos= document.getElementById('user_videos');
+		       mui.each(data,function(index,item){
+		      // console.log(item[1]);
+               user_videos.innerHTML+="<video src='http://whois8.cn/files/"+item[1]+"'>播放器</video>";
+               })
+		});  
+    </script>
+<script>
+	
+	  mui.getJSON('http://whois8.cn/getinfoforuser.php',{uid:uid},function(data){
+		    //数据绑定在此处
+	           var videonum= document.getElementById('videonum');
+		       videonum.innerHTML=data["videonum"];
+		});  
+	
 </script>
 </html>

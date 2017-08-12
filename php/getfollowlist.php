@@ -5,8 +5,6 @@
  
 	$query=mysqli_query($dbconn,$sql);
 	
-	//echo json_encode(mysqli_fetch_array($query));
-	 
 	$a=array();
     $i=0;
 	

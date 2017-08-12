@@ -31,11 +31,11 @@
 			</div>
 			<div id="user_following_info">
 				<div class="following_info">
-					<span>26</span>
+					<span  id="follownum">0</span>
 					<span>Follow</span>
 				</div>
 				<div class="following_info">
-					<span>358</span>
+					<span id="followernum">0</span>
 					<span>Followers</span>
 				</div>
 				<div class="following_info">
@@ -103,6 +103,14 @@
 		    //数据绑定在此处
 	           var videonum= document.getElementById('videonum');
 		       videonum.innerHTML=data["videonum"];
+		       
+		       var follownum= document.getElementById('follownum');
+		       follownum.innerHTML=data["follownum"];
+		       
+		       var followernum= document.getElementById('followernum');
+		       followernum.innerHTML=data["followernum"];
+		       
+		       
 		});  
 	
 </script>

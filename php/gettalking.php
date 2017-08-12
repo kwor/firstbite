@@ -2,7 +2,7 @@
 	require_once("dbconn.php");
 	$uid=$_REQUEST["uid"]?$_REQUEST["uid"]:0;
 	$fuid=$_REQUEST["fuid"]?$_REQUEST["fuid"]:0;
-	$sql="select * from kfollowing_comment where uid in ('$uid','$fuid') and fuid in ('$uid','$fuid') order by addtime desc";
+	$sql="select * from kfollowing_comment where uid in ('$uid','$fuid') and fuid in ('$uid','$fuid') order by addtime asc";
  
 	$query=mysqli_query($dbconn,$sql);
 	

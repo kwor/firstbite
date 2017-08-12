@@ -1,7 +1,7 @@
 <?php
 	require_once("dbconn.php");
 	$uid=$_REQUEST["uid"]?$_REQUEST["uid"]:0;
-	$sql="select * from kfollowing as kf left join firstbite_user as u on kf.followuid=u.user_id where kf.uid='$uid' order by kf.addtime asc";
+	$sql="select * from kfollowing as kf left join firstbite_user as u on kf.followuid=u.user_id where kf.uid='$uid' order by kf.addtime desc";
  
 	$query=mysqli_query($dbconn,$sql);
 	

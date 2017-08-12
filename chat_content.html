@@ -55,6 +55,7 @@
 	var uid = localStorage.getItem('user_id');
 	var self = plus.webview.currentWebview();
     var fuid = self.fuid;
+    var message_num=0;
     	mui.getJSON('http://whois8.cn/gettalking.php',{uid:uid,fuid:fuid},function(data){
 		       //数据绑定在此处
 	           var list = document.getElementById("OA_task_1");
@@ -70,6 +71,7 @@
 
                     }else{
                     	    li.innerHTML =   "对方说："+item[2];
+                    	    message_num=message_num+1;
 
                     }
                     fragment.appendChild(li);
@@ -82,7 +84,7 @@
 	document.getElementById('stalk').addEventListener('tap', function() {
 	 
 	 var content=document.getElementById('talk').value;
-	 console.log(content);
+	 //console.log(content);
 	 mui.post('http://whois8.cn/sendmessage.php',{
 		uid:uid,
 		fuid:fuid,
@@ -90,12 +92,39 @@
 	    },function(data){
 	    
 	        mui.alert(data);
-             document.getElementById("OA_task_1").innerHTML+="我说:"+content;
+            document.getElementById("OA_task_1").innerHTML+="<br/>我说:"+content;
 	    
 	     },'text'
-        );
-              
-	 	 
+       );
 	 });
+	 
+	 //定时刷新消息
+	 window.setInterval(function(){
+	 	
+	 	mui.post('http://whois8.cn/getnewmessage.php',{
+		uid:fuid,
+		fuid:uid,
+		messagenum:message_num
+	    },function(data){
+	    
+	    //console.log(data["num"]);
+	     if(data['num']>0){
+	    	message_num=parseInt(message_num)+parseInt(data["num"]);
+	    	
+	    	mui.each(data[0],function(index,item){
+           
+                   
+                   //console.log(item[2]);
+                   document.getElementById("OA_task_1").innerHTML+="<br/>对方说:"+item[2];
+                  
+               })
+	     }
+	        //mui.alert(data);
+	     },'json'
+       );
+	 
+	 
+	 },5000);
+
 </script>
 </html>

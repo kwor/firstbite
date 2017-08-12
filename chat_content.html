@@ -11,12 +11,24 @@
     <link href="css/main_page.css" rel="stylesheet"/>
    
     <style type="text/css">
-    	#app_name .mui-icon .mui-icon-clear .mui-hidden{line-height: 3vh;}
+    		#app_name .mui-icon .mui-icon-clear .mui-hidden{line-height: 3vh;}
+    		#OA_task_1{background: #FFFFFF; padding:0; padding-top: 3vh; margin: 0; width: 100%; padding-bottom: 3vh;}
+   		.i_said{display:block; text-align: left; max-width: 80%; margin-left: 15%; min-height: 14vw; margin-top: 1vh;}
+   		.you_said{display: block; max-width: 80%; text-align: left; margin-left: 5%;}
+   		.chat_content{max-width: 100%; padding: 2vw 2vw; position: relative; min-height: 12vw;}
+   		.I{right: 0;position:absolute; right: 13vw;}
+   		.He{left: 0;position:absolute; left: 13vw;}
+   		.chat_content span{color: #6d6d6d; background: #f1f1f1; display: block; padding: 1vh; border-radius: 3vw;}
+   		.chat_headImg{top:-1.5vh; width: 12vw; height: 12vw; -moz-border-radius: 6vw; -webkit-border-radius: 6vw; border-radius: 6vw;}
+    		#bottom_menu{height: 10vh;}
+    		#talk{width: 80%; float: left; margin-top: 2.5vh;}
+    		#bottom_menu button{width: 15%; float: right; margin-right: 2.5%; margin-top: 2.5vh;}
+    		
     </style>
 </head>
 <body>
 
-	<div id="main" class="sign_content mui-content">
+	<div id="main" class="sign_content mui-content" style="padding-bottom: 12vh;">
 		<!--  Top Templete  Start -->
 	<header class="mui-bar mui-bar-nav" style="background: #FFFFFF;">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
@@ -25,26 +37,20 @@
 		<!--  Top Templete  End -->
 
 		<!--  Near By Templete  -->
-		<div style="padding-top: 30px;overflow:auto;">
+		<div style="margin-top: 6vh;overflow:auto;">
 		 
 		<ul id="OA_task_1">
 		
 		</ul>
+		
 		</div>
 		
-		<textarea name="talk" id="talk">
-			
-		</textarea>
-		<button id="stalk">发送</button>
 		
 		<!--  Bottom Templete Start  -->
 		<div id="bottom_menu">
 			<ul id="bottom_ul_menu">
-				<li><img src="img/icon/home.png" onclick="window.location.href='main_page.html'"></li>
-				<li><img src="img/icon/message.png" onclick="window.location.href='chat_list.html'"></li>
-				<li><img src="img/icon/create.png"></li>
-				<li><img src="img/icon/moment.png" onclick="window.location.href='moment.html'"></li>
-				<li><img src="img/icon/user2.png" onclick="window.location.href='user_center.html'"></li>
+				<input name="talk" id="talk" type="text" placeholder="Pleasing typing" />
+				<button id="stalk">发送</button>
 			</ul>
 		</div>
 		<!--  Bottom Templete End  -->
@@ -67,10 +73,16 @@
                     li.id=item[0];
                     //console.log(data5);
                     if(item[0]==uid){
-                    	    li.innerHTML =   "我说："+item[2];
+                    		li.className = 'i_said'; 
+                    	    li.innerHTML = '<div class="chat_content">'+
+                    	   				   '<img style="right:0;" src="img/icon/user_headImg.png" class="chat_headImg I" />'+
+                    	   				   '<span class="I">我说：'+item[2]+'</span></div><div style="clear: both;"></div>';
 
                     }else{
-                    	    li.innerHTML =   "对方说："+item[2];
+                    		li.className = 'you_said'; 
+                    	    li.innerHTML =  '<div class="chat_content">'+
+                    	   				   '<img style="left:0;" src="img/icon/user_headImg.png" class="chat_headImg He" />' + 
+                    	   				   '<span class="He">他说：'+item[2]+'</span></div><div style="clear: both;"></div>';
                     	    message_num=message_num+1;
 
                     }
@@ -92,7 +104,12 @@
 	    },function(data){
 	    
 	        mui.alert(data);
-            document.getElementById("OA_task_1").innerHTML+="<br/>我说:"+content;
+            document.getElementById("OA_task_1").innerHTML+="<br/>"+
+            								'<li class="i_said">'+
+            								'<div class="chat_content">'+
+            								'<img style="right:0;" src="img/icon/user_headImg.png" class="chat_headImg I" />'+
+            								'<span class="I">我说：'+content+'</span></div><div style="clear: both;"></div></li>';
+            	document.getElementById('talk').value="";
 	    
 	     },'text'
        );
@@ -115,7 +132,10 @@
            
                    
                    //console.log(item[2]);
-                   document.getElementById("OA_task_1").innerHTML+="<br/>对方说:"+item[2];
+                   document.getElementById("OA_task_1").innerHTML+="<br/>"+
+                   					'<div class="chat_content">'+
+                   					'<img src="img/icon/user_headImg.png" class="chat_headImg" />' + 
+                   					'<span>他说：'+item[2]+'</span></div><div style="clear: both;"></div>';
                   
                })
 	     }

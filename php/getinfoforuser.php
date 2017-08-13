@@ -2,6 +2,13 @@
 require_once("dbconn.php");
 	$uid=$_REQUEST["uid"]?$_REQUEST["uid"]:0;
 
+    $sqlu = "select * from firstbite_user where user_id='$uid'";
+	$resu=mysqli_query($dbconn,$sqlu);
+	$rowu = mysqli_fetch_array($resu);
+	$uinfo["uname"]=$rowu["user_name"];
+	$uinfo["phone"]=$rowu["user_phone"];
+	$uinfo["type"]=$rowu["user_type"];
+	
 	$sql = "select count(*) as num from kvideo where uid='$uid'";
 	$res=mysqli_query($dbconn,$sql);
 	$row = mysqli_fetch_array($res);
